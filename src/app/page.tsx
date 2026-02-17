@@ -45,7 +45,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col bg-gray-950">
+    <div className="h-screen flex flex-col bg-[#0c0c0e]">
       <Header
         activeTab={activeTab}
         onTabChange={setActiveTab}

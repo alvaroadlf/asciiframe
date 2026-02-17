@@ -14,86 +14,82 @@ export default function Header({
   onGenerate,
 }: HeaderProps) {
   return (
-    <header className="bg-gray-950 border-b border-gray-800 px-4 py-2 flex items-center justify-between shrink-0">
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2">
-          <svg
-            className="w-6 h-6 text-emerald-400"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <line x1="3" y1="9" x2="21" y2="9" />
-            <line x1="9" y1="9" x2="9" y2="21" />
-          </svg>
-          <h1 className="text-white font-bold text-lg tracking-tight">
-            ASCII <span className="text-emerald-400">Frame</span>
-          </h1>
-        </div>
-        <span className="text-gray-500 text-xs hidden md:inline border-l border-gray-700 pl-3">
-          ASCII wireframe design tool
-        </span>
+    <header className="bg-[#111113] border-b border-[#232329] px-4 py-2.5 flex items-center justify-between shrink-0">
+      {/* Left: Logo */}
+      <div className="flex items-center gap-2.5">
+        <svg
+          className="w-7 h-7 text-[#10b981]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.8}
+        >
+          <rect x="3" y="3" width="18" height="18" rx="3" />
+          <line x1="3" y1="9" x2="21" y2="9" />
+          <line x1="9" y1="9" x2="9" y2="21" />
+        </svg>
+        <h1 className="text-[15px] font-semibold tracking-tight">
+          <span className="text-white">ASCII </span>
+          <span className="text-[#10b981]">Frame</span>
+        </h1>
       </div>
 
-      {/* Mobile tab switcher */}
-      <div className="flex md:hidden items-center gap-2">
+      {/* Center: Generate button (desktop) */}
+      <div className="hidden md:flex items-center">
         <button
           onClick={onGenerate}
-          className="px-3 py-1 rounded-lg text-xs font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
+          className="flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium bg-[#10b981] hover:bg-[#0ea472] text-white transition-colors shadow-sm"
         >
-          Generate
-        </button>
-        <div className="flex bg-gray-800 rounded-lg p-0.5">
-          <button
-            onClick={() => onTabChange("editor")}
-            className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-              activeTab === "editor"
-                ? "bg-gray-600 text-white"
-                : "text-gray-400 hover:text-gray-200"
-            }`}
-          >
-            Editor
-          </button>
-          <button
-            onClick={() => onTabChange("preview")}
-            className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-              activeTab === "preview"
-                ? "bg-gray-600 text-white"
-                : "text-gray-400 hover:text-gray-200"
-            }`}
-          >
-            Preview
-          </button>
-        </div>
-      </div>
-
-      <div className="hidden md:flex items-center gap-3">
-        <button
-          onClick={onGenerate}
-          className="px-4 py-1.5 rounded-lg text-xs font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center gap-1.5"
-        >
-          <svg
-            className="w-3.5 h-3.5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-            />
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
           </svg>
           Generate
+          <svg className="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
+      </div>
+
+      {/* Right: Mobile tabs + actions */}
+      <div className="flex items-center gap-2">
+        {/* Mobile: Generate + tabs */}
+        <div className="flex md:hidden items-center gap-2">
+          <button
+            onClick={onGenerate}
+            className="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#10b981] hover:bg-[#0ea472] text-white transition-colors"
+          >
+            Generate
+          </button>
+          <div className="flex bg-[#1c1c21] rounded-lg p-0.5 border border-[#2a2a30]">
+            <button
+              onClick={() => onTabChange("editor")}
+              className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
+                activeTab === "editor"
+                  ? "bg-[#2a2a30] text-white"
+                  : "text-[#71717a] hover:text-[#a1a1aa]"
+              }`}
+            >
+              Editor
+            </button>
+            <button
+              onClick={() => onTabChange("preview")}
+              className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
+                activeTab === "preview"
+                  ? "bg-[#2a2a30] text-white"
+                  : "text-[#71717a] hover:text-[#a1a1aa]"
+              }`}
+            >
+              Preview
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop: GitHub link */}
         <a
           href="https://github.com/alvaroadlf/asciiframe"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition-colors"
+          className="hidden md:flex text-[#71717a] hover:text-white transition-colors p-1.5"
           aria-label="GitHub"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

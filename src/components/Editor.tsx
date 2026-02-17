@@ -49,20 +49,18 @@ export default function Editor({ value, onChange }: EditorProps) {
   }, []);
 
   return (
-    <div className="h-full flex flex-col bg-gray-950">
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-900 border-b border-gray-800 shrink-0">
+    <div className="h-full flex flex-col bg-[#0c0c0e]">
+      <div className="flex items-center justify-between px-4 py-1.5 bg-[#18181b] border-b border-[#232329] shrink-0">
         <div className="flex items-center gap-2">
-          <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-red-500" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-            <div className="w-3 h-3 rounded-full bg-green-500" />
-          </div>
-          <span className="text-gray-400 text-xs ml-2 font-mono">
-            wireframe.md
+          <svg className="w-3.5 h-3.5 text-[#71717a]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+          <span className="text-[#a1a1aa] text-xs font-medium">
+            Editor
           </span>
         </div>
-        <span className="text-gray-500 text-xs hidden sm:inline">
-          ASCII Wireframe Editor
+        <span className="text-[#52525b] text-xs hidden sm:inline font-mono">
+          wireframe.md
         </span>
       </div>
       <div className="flex-1 relative overflow-hidden">
@@ -71,7 +69,7 @@ export default function Editor({ value, onChange }: EditorProps) {
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          className="w-full h-full resize-none bg-gray-950 text-gray-100 font-mono text-sm p-4 focus:outline-none leading-relaxed"
+          className="w-full h-full resize-none bg-[#0c0c0e] text-[#e4e4e7] font-mono text-[13px] p-4 focus:outline-none leading-relaxed"
           spellCheck={false}
           autoCapitalize="off"
           autoCorrect="off"
