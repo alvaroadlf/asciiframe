@@ -7,6 +7,8 @@ interface EditorProps {
   onChange: (value: string) => void;
 }
 
+const TAB_INDENT = "  ";
+
 export default function Editor({ value, onChange }: EditorProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -28,12 +30,12 @@ export default function Editor({ value, onChange }: EditorProps) {
         const start = textarea.selectionStart;
         const end = textarea.selectionEnd;
         const newValue =
-          value.substring(0, start) + "  " + value.substring(end);
+          value.substring(0, start) + TAB_INDENT + value.substring(end);
         onChange(newValue);
 
         // Restore cursor position
         requestAnimationFrame(() => {
-          textarea.selectionStart = textarea.selectionEnd = start + 2;
+          textarea.selectionStart = textarea.selectionEnd = start + TAB_INDENT.length;
         });
       }
     },

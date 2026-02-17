@@ -140,6 +140,7 @@ function TextboxNode({ node }: { node: ASTNode }) {
       {node.defaultValue ? (
         <span className="text-gray-500">{node.defaultValue}</span>
       ) : (
+        // Zero-width space ensures the span maintains its height when empty
         <span className="text-transparent select-none">&#8203;</span>
       )}
     </span>
@@ -156,6 +157,7 @@ function TextareaNode({ node }: { node: ASTNode }) {
         maxWidth: "100%",
       }}
     >
+      {/* Zero-width space ensures the div maintains its height when empty */}
       <span className="text-transparent select-none">&#8203;</span>
     </div>
   );
