@@ -69,7 +69,7 @@ export default function Editor({ value, onChange }: EditorProps) {
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          className="w-full h-full resize-none bg-[#0c0c0e] text-[#e4e4e7] font-mono text-[13px] p-4 focus:outline-none leading-relaxed"
+          className="w-full h-full resize-none bg-[#0c0c0e] text-[#e4e4e7] font-mono text-xs p-4 focus:outline-none leading-relaxed"
           spellCheck={false}
           autoCapitalize="off"
           autoCorrect="off"

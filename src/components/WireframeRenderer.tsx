@@ -17,7 +17,7 @@ export default function WireframeRenderer({ source }: WireframeRendererProps) {
   }, [source]);
 
   return (
-    <div className="wireframe-preview text-sm p-6 space-y-2 font-sans">
+    <div className="wireframe-preview text-sm p-6 space-y-2">
       {nodes.map((node, index) => (
         <WireframeNode key={index} node={node} />
       ))}
