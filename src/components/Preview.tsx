@@ -9,11 +9,11 @@ interface PreviewProps {
 
 export default function Preview({ source }: PreviewProps) {
   return (
-    <div className="h-full flex flex-col bg-white">
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-50 border-b border-gray-200 shrink-0">
+    <div className="h-full flex flex-col bg-gray-900">
+      <div className="flex items-center justify-between px-4 py-2 bg-gray-850 border-b border-gray-700 shrink-0">
         <div className="flex items-center gap-2">
           <svg
-            className="w-4 h-4 text-gray-500"
+            className="w-4 h-4 text-gray-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -31,9 +31,9 @@ export default function Preview({ source }: PreviewProps) {
               d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
             />
           </svg>
-          <span className="text-gray-600 text-xs font-medium">Preview</span>
+          <span className="text-gray-400 text-xs font-medium">Preview</span>
         </div>
-        <span className="text-gray-400 text-xs hidden sm:inline">
+        <span className="text-gray-500 text-xs hidden sm:inline">
           Live wireframe
         </span>
       </div>

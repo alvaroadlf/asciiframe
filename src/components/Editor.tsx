@@ -49,8 +49,8 @@ export default function Editor({ value, onChange }: EditorProps) {
   }, []);
 
   return (
-    <div className="h-full flex flex-col bg-gray-900">
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-gray-700 shrink-0">
+    <div className="h-full flex flex-col bg-gray-950">
+      <div className="flex items-center justify-between px-4 py-2 bg-gray-900 border-b border-gray-800 shrink-0">
         <div className="flex items-center gap-2">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500" />
@@ -71,7 +71,7 @@ export default function Editor({ value, onChange }: EditorProps) {
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          className="w-full h-full resize-none bg-gray-900 text-gray-100 font-mono text-sm p-4 focus:outline-none leading-relaxed"
+          className="w-full h-full resize-none bg-gray-950 text-gray-100 font-mono text-sm p-4 focus:outline-none leading-relaxed"
           spellCheck={false}
           autoCapitalize="off"
           autoCorrect="off"

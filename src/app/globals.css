@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030712;
+  --foreground: #f3f4f6;
 }
 
 @theme inline {
@@ -41,7 +41,7 @@ body {
 /* Resizer handle */
 .resizer {
   width: 6px;
-  background: #374151;
+  background: #1f2937;
   cursor: col-resize;
   flex-shrink: 0;
   position: relative;
@@ -50,7 +50,7 @@ body {
 
 .resizer:hover,
 .resizer:active {
-  background: #4b5563;
+  background: #374151;
 }
 
 .resizer::after {
@@ -61,7 +61,7 @@ body {
   transform: translate(-50%, -50%);
   width: 2px;
   height: 24px;
-  background: #6b7280;
+  background: #4b5563;
   border-radius: 1px;
 }
 
@@ -77,12 +77,12 @@ textarea::-webkit-scrollbar-track {
 }
 
 .wireframe-preview::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: #374151;
   border-radius: 4px;
 }
 
 textarea::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: #374151;
   border-radius: 4px;
 }
 

@@ -4,12 +4,14 @@ import React, { useState, useCallback, useRef } from "react";
 import Header from "@/components/Header";
 import Editor from "@/components/Editor";
 import Preview from "@/components/Preview";
+import TemplateModal from "@/components/TemplateModal";
 import { DEFAULT_WIREFRAME } from "@/lib/parser";
 
 export default function Home() {
   const [source, setSource] = useState(DEFAULT_WIREFRAME);
   const [activeTab, setActiveTab] = useState<"editor" | "preview">("editor");
   const [splitPosition, setSplitPosition] = useState(50);
+  const [showTemplates, setShowTemplates] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
 
@@ -37,9 +39,18 @@ export default function Home() {
     document.addEventListener("mouseup", handleMouseUp);
   }, []);
 
+  const handleTemplateSelect = useCallback((content: string) => {
+    setSource(content);
+    setActiveTab("preview");
+  }, []);
+
   return (
-    <div className="h-screen flex flex-col">
-      <Header activeTab={activeTab} onTabChange={setActiveTab} />
+    <div className="h-screen flex flex-col bg-gray-950">
+      <Header
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        onGenerate={() => setShowTemplates(true)}
+      />
 
       {/* Desktop: side-by-side split pane */}
       <div
@@ -66,6 +77,12 @@ export default function Home() {
           <Preview source={source} />
         )}
       </div>
+
+      <TemplateModal
+        isOpen={showTemplates}
+        onClose={() => setShowTemplates(false)}
+        onSelect={handleTemplateSelect}
+      />
     </div>
   );
 }

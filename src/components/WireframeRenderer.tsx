@@ -60,15 +60,15 @@ function HeadingNode({ node }: { node: ASTNode }) {
   const Tag = `h${node.level || 1}` as keyof React.JSX.IntrinsicElements;
   const sizeClass =
     node.level === 1
-      ? "text-2xl font-bold border-b-2 border-gray-300 pb-2 mb-3"
+      ? "text-2xl font-bold border-b-2 border-gray-700 pb-2 mb-3"
       : node.level === 2
-        ? "text-xl font-bold border-b border-gray-200 pb-1 mb-2"
+        ? "text-xl font-bold border-b border-gray-700 pb-1 mb-2"
         : node.level === 3
           ? "text-lg font-semibold mb-1"
           : "text-base font-semibold mb-1";
 
   return (
-    <Tag className={`${sizeClass} text-gray-800`}>
+    <Tag className={`${sizeClass} text-gray-100`}>
       {node.content}
     </Tag>
   );
@@ -76,7 +76,7 @@ function HeadingNode({ node }: { node: ASTNode }) {
 
 function ParagraphNode({ node }: { node: ASTNode }) {
   return (
-    <p className="text-gray-700 leading-relaxed">{node.content}</p>
+    <p className="text-gray-300 leading-relaxed">{node.content}</p>
   );
 }
 
@@ -86,8 +86,8 @@ function CheckboxNode({ node }: { node: ASTNode }) {
       <span
         className={`inline-flex items-center justify-center w-4 h-4 border-2 rounded-sm ${
           node.checked
-            ? "bg-gray-700 border-gray-700"
-            : "bg-white border-gray-400"
+            ? "bg-emerald-500 border-emerald-500"
+            : "bg-transparent border-gray-500"
         }`}
       >
         {node.checked && (
@@ -106,7 +106,7 @@ function CheckboxNode({ node }: { node: ASTNode }) {
           </svg>
         )}
       </span>
-      <span className="text-gray-700">{node.content}</span>
+      <span className="text-gray-300">{node.content}</span>
     </label>
   );
 }
@@ -116,14 +116,14 @@ function RadioNode({ node }: { node: ASTNode }) {
     <label className="flex items-center gap-2 cursor-default py-0.5">
       <span
         className={`inline-flex items-center justify-center w-4 h-4 border-2 rounded-full ${
-          node.checked ? "border-gray-700" : "border-gray-400"
+          node.checked ? "border-emerald-500" : "border-gray-500"
         }`}
       >
         {node.checked && (
-          <span className="w-2 h-2 bg-gray-700 rounded-full" />
+          <span className="w-2 h-2 bg-emerald-500 rounded-full" />
         )}
       </span>
-      <span className="text-gray-700">{node.content}</span>
+      <span className="text-gray-300">{node.content}</span>
     </label>
   );
 }
@@ -131,14 +131,14 @@ function RadioNode({ node }: { node: ASTNode }) {
 function TextboxNode({ node }: { node: ASTNode }) {
   return (
     <span
-      className="inline-block border-2 border-gray-300 rounded px-2 py-1 bg-white align-middle"
+      className="inline-block border border-gray-600 rounded px-2 py-1 bg-gray-800 align-middle"
       style={{
         minWidth: node.width || "100%",
         maxWidth: "100%",
       }}
     >
       {node.defaultValue ? (
-        <span className="text-gray-500">{node.defaultValue}</span>
+        <span className="text-gray-400">{node.defaultValue}</span>
       ) : (
         // Zero-width space ensures the span maintains its height when empty
         <span className="text-transparent select-none">&#8203;</span>
@@ -150,7 +150,7 @@ function TextboxNode({ node }: { node: ASTNode }) {
 function TextareaNode({ node }: { node: ASTNode }) {
   return (
     <div
-      className="border-2 border-gray-300 rounded px-2 py-1 bg-white"
+      className="border border-gray-600 rounded px-2 py-1 bg-gray-800"
       style={{
         minHeight: `${(node.rows || 3) * 1.8}em`,
         width: "100%",
@@ -165,19 +165,19 @@ function TextareaNode({ node }: { node: ASTNode }) {
 
 function ButtonNode({ node }: { node: ASTNode }) {
   return (
-    <span className="inline-block border-2 border-gray-400 rounded px-4 py-1.5 bg-gray-100 hover:bg-gray-200 cursor-default font-medium text-gray-700 mr-2 mb-1 whitespace-nowrap">
+    <span className="inline-block border border-gray-600 rounded px-4 py-1.5 bg-gray-800 hover:bg-gray-700 cursor-default font-medium text-gray-200 mr-2 mb-1 whitespace-nowrap">
       {node.content}
     </span>
   );
 }
 
 function SeparatorNode() {
-  return <hr className="border-t-2 border-gray-200 my-4" />;
+  return <hr className="border-t border-gray-700 my-4" />;
 }
 
 function LinkNode({ node }: { node: ASTNode }) {
   return (
-    <span className="text-blue-600 underline cursor-default">
+    <span className="text-emerald-400 underline cursor-default">
       {node.content}
     </span>
   );
@@ -185,8 +185,8 @@ function LinkNode({ node }: { node: ASTNode }) {
 
 function ImageNode({ node }: { node: ASTNode }) {
   return (
-    <div className="border-2 border-dashed border-gray-300 rounded p-4 flex items-center justify-center bg-gray-50">
-      <div className="text-center text-gray-400">
+    <div className="border border-dashed border-gray-600 rounded p-4 flex items-center justify-center bg-gray-800/50">
+      <div className="text-center text-gray-500">
         <svg
           className="w-8 h-8 mx-auto mb-1"
           fill="none"
@@ -208,7 +208,7 @@ function ImageNode({ node }: { node: ASTNode }) {
 
 function ContainerNode({ node }: { node: ASTNode }) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border border-gray-600 rounded-lg p-4 bg-gray-800/50">
       {node.children?.map((child, index) => (
         <WireframeNode key={index} node={child} />
       ))}

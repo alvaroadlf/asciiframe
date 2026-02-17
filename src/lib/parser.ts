@@ -282,7 +282,7 @@ function parseInlineTextboxes(line: string): ASTNode[] {
   return nodes;
 }
 
-export const DEFAULT_WIREFRAME = `# AsciiFrame
+export const DEFAULT_WIREFRAME = `# ASCII Frame
 
 ## Login Form
 

@@ -5,11 +5,16 @@ import React from "react";
 interface HeaderProps {
   activeTab: "editor" | "preview";
   onTabChange: (tab: "editor" | "preview") => void;
+  onGenerate: () => void;
 }
 
-export default function Header({ activeTab, onTabChange }: HeaderProps) {
+export default function Header({
+  activeTab,
+  onTabChange,
+  onGenerate,
+}: HeaderProps) {
   return (
-    <header className="bg-gray-900 border-b border-gray-700 px-4 py-2 flex items-center justify-between shrink-0">
+    <header className="bg-gray-950 border-b border-gray-800 px-4 py-2 flex items-center justify-between shrink-0">
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2">
           <svg
@@ -24,7 +29,7 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
             <line x1="9" y1="9" x2="9" y2="21" />
           </svg>
           <h1 className="text-white font-bold text-lg tracking-tight">
-            Ascii<span className="text-emerald-400">Frame</span>
+            ASCII <span className="text-emerald-400">Frame</span>
           </h1>
         </div>
         <span className="text-gray-500 text-xs hidden md:inline border-l border-gray-700 pl-3">
@@ -33,30 +38,57 @@ export default function Header({ activeTab, onTabChange }: HeaderProps) {
       </div>
 
       {/* Mobile tab switcher */}
-      <div className="flex md:hidden bg-gray-800 rounded-lg p-0.5">
+      <div className="flex md:hidden items-center gap-2">
         <button
-          onClick={() => onTabChange("editor")}
-          className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-            activeTab === "editor"
-              ? "bg-gray-600 text-white"
-              : "text-gray-400 hover:text-gray-200"
-          }`}
+          onClick={onGenerate}
+          className="px-3 py-1 rounded-lg text-xs font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
         >
-          Editor
+          Generate
         </button>
-        <button
-          onClick={() => onTabChange("preview")}
-          className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-            activeTab === "preview"
-              ? "bg-gray-600 text-white"
-              : "text-gray-400 hover:text-gray-200"
-          }`}
-        >
-          Preview
-        </button>
+        <div className="flex bg-gray-800 rounded-lg p-0.5">
+          <button
+            onClick={() => onTabChange("editor")}
+            className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
+              activeTab === "editor"
+                ? "bg-gray-600 text-white"
+                : "text-gray-400 hover:text-gray-200"
+            }`}
+          >
+            Editor
+          </button>
+          <button
+            onClick={() => onTabChange("preview")}
+            className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
+              activeTab === "preview"
+                ? "bg-gray-600 text-white"
+                : "text-gray-400 hover:text-gray-200"
+            }`}
+          >
+            Preview
+          </button>
+        </div>
       </div>
 
       <div className="hidden md:flex items-center gap-3">
+        <button
+          onClick={onGenerate}
+          className="px-4 py-1.5 rounded-lg text-xs font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center gap-1.5"
+        >
+          <svg
+            className="w-3.5 h-3.5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+            />
+          </svg>
+          Generate
+        </button>
         <a
           href="https://github.com/alvaroadlf/asciiframe"
           target="_blank"
